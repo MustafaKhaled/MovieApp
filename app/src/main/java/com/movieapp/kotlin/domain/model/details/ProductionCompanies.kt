@@ -1,4 +1,3 @@
-package com.movieapp.kotlin.domain.model
 import com.google.gson.annotations.SerializedName
 
 /*
@@ -13,20 +12,10 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 For support, please feel free to contact me at https://www.linkedin.com/in/syedabsar */
 
 
-data class SingleMovieModel (
+data class ProductionCompanies (
 
-	@SerializedName("poster_path") val posterPath : String,
-	@SerializedName("adult") val adult : Boolean,
-	@SerializedName("overview") val overview : String,
-	@SerializedName("release_date") val releaseDate : String,
-	@SerializedName("genre_ids") val genreIds : List<Int>,
 	@SerializedName("id") val id : Int,
-	@SerializedName("original_title") val originalTitle : String,
-	@SerializedName("original_language") val originalLanguage : String,
-	@SerializedName("title") val title : String,
-	@SerializedName("backdrop_path") val backdropPath : String,
-	@SerializedName("popularity") val popularity : Double,
-	@SerializedName("vote_count") val voteCount : Int,
-	@SerializedName("video") val video : Boolean,
-	@SerializedName("vote_average") val voteAverage : Double
+	@SerializedName("logo_path") val logo_path : String,
+	@SerializedName("name") val name : String,
+	@SerializedName("origin_country") val origin_country : String
 )

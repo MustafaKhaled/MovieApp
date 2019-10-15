@@ -1,4 +1,4 @@
-package com.movieapp.kotlin.domain.model
+package com.movieapp.kotlin.domain.model.toprated
 
 import com.google.gson.annotations.SerializedName
 

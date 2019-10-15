@@ -3,7 +3,7 @@ package com.movieapp.kotlin.presentation.viewmodels
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.movieapp.kotlin.domain.model.GetAllMoviesResponse
+import com.movieapp.kotlin.domain.model.toprated.GetAllMoviesResponse
 import com.movieapp.kotlin.domain.usecases.business.GetAllMoviesUseCase
 
 class GetAllMoviesViewModel constructor(private val getAllMoviesUseCase: GetAllMoviesUseCase) : ViewModel() {

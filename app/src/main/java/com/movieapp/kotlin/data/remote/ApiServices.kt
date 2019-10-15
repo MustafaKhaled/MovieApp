@@ -1,9 +1,10 @@
 package com.movieapp.kotlin.data.remote
 
-import com.movieapp.kotlin.domain.model.GetAllMoviesResponse
+import MovieDetails
+import com.movieapp.kotlin.domain.model.toprated.GetAllMoviesResponse
 import io.reactivex.Single
-import retrofit2.http.Field
 import retrofit2.http.GET
+import retrofit2.http.Path
 import retrofit2.http.Query
 
 interface ApiServices {
@@ -13,4 +14,6 @@ interface ApiServices {
     fun getAllMovies(@Query("api_key") apiKey : String) : Single<GetAllMoviesResponse>
 
 
+    @GET("movie/{movie_id}")
+    fun getMovieDetails(@Path("movie_id") movieId : Int) : Single<MovieDetails>
 }
