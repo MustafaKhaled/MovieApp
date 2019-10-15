@@ -19,7 +19,9 @@ android {
     }
     buildTypes {
         debug {
-            buildConfigField "String", "BASE_URL", '"http://someurl/"'
+            buildConfigField "String", "BASE_URL", '"https://api.themoviedb.org/3/"'
+            buildConfigField "String", "API_KEY", '"d3edddc6eae26b4dc0889fc9047cdd5f"'
+
         }
 
         release {
@@ -43,6 +45,9 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
+
+    //RecyclerView
+    implementation 'androidx.recyclerview:recyclerview:1.0.0'
 
     //Gson
     implementation 'com.google.code.gson:gson:2.8.5'
@@ -70,5 +75,8 @@ dependencies {
     implementation 'org.koin:koin-androidx-scope:2.0.1'
     // or Koin for Android Architecture ViewModel
     implementation 'org.koin:koin-androidx-viewmodel:2.0.1'
+    //Picasso
+    implementation 'com.squareup.picasso:picasso:2.71828'
+
 
 }

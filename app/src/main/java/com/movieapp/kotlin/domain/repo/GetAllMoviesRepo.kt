@@ -4,5 +4,5 @@ import com.movieapp.kotlin.domain.model.GetAllMoviesResponse
 import io.reactivex.Single
 
 interface GetAllMoviesRepo {
-    fun getAllMovies() : Single<GetAllMoviesResponse>
+    fun getAllMovies(apiKey : String) : Single<GetAllMoviesResponse>
 }

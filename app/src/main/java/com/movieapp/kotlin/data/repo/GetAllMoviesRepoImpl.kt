@@ -7,7 +7,7 @@ import io.reactivex.Single
 
 class GetAllMoviesRepoImpl(private val apiServices : ApiServices) : GetAllMoviesRepo {
 
-    override fun getAllMovies(): Single<GetAllMoviesResponse> {
-        return apiServices.getAllMovies()
+    override fun getAllMovies(apiKey : String): Single<GetAllMoviesResponse> {
+        return apiServices.getAllMovies(apiKey)
     }
 }

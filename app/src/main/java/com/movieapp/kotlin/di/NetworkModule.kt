@@ -5,7 +5,6 @@ import com.movieapp.kotlin.BuildConfig
 import com.movieapp.kotlin.data.remote.ApiServices
 import com.movieapp.kotlin.data.repo.GetAllMoviesRepoImpl
 import com.movieapp.kotlin.domain.repo.GetAllMoviesRepo
-import com.movieapp.kotlin.domain.usecases.business.GetAllMoviesUseCase
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.core.module.Module
@@ -20,14 +19,12 @@ val NetworkModule = module {
     single { createOkHttpClientInstancee() }
     single { createRetrofitClientInstance(get(), BuildConfig.BASE_URL) }
     single { createApiServiceInstance(get())}
-    single { createGetAllMoviesRepoInstance(get()) }
-    single { createGetAllMoviesUseCase(get()) }
 
 }
 
 fun createOkHttpClientInstancee(): OkHttpClient {
     val httpLoggingInterceptor = HttpLoggingInterceptor()
-    httpLoggingInterceptor.level = HttpLoggingInterceptor.Level.BASIC
+    httpLoggingInterceptor.level = HttpLoggingInterceptor.Level.BODY
     return OkHttpClient.Builder()
         .connectTimeout(60, TimeUnit.SECONDS)
         .readTimeout(60, TimeUnit.SECONDS)
@@ -49,10 +46,4 @@ fun createRetrofitClientInstance(okHttpClient: OkHttpClient, BASE_URL: String): 
 
     }
 
-    fun createGetAllMoviesRepoInstance(apiServices: ApiServices): GetAllMoviesRepo {
-        return GetAllMoviesRepoImpl(apiServices)
-    }
 
-    fun createGetAllMoviesUseCase(getAllMoviesRepo: GetAllMoviesRepo): GetAllMoviesUseCase {
-        return GetAllMoviesUseCase(getAllMoviesRepo)
-    }
