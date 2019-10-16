@@ -1,3 +1,4 @@
+package com.movieapp.kotlin.domain.model.details
 import com.google.gson.annotations.SerializedName
 
 /*

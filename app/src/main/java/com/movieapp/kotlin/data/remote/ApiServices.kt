@@ -1,6 +1,6 @@
 package com.movieapp.kotlin.data.remote
 
-import MovieDetails
+import com.movieapp.kotlin.domain.model.details.MovieDetails
 import com.movieapp.kotlin.domain.model.toprated.GetAllMoviesResponse
 import io.reactivex.Single
 import retrofit2.http.GET
@@ -15,5 +15,5 @@ interface ApiServices {
 
 
     @GET("movie/{movie_id}")
-    fun getMovieDetails(@Path("movie_id") movieId : Int) : Single<MovieDetails>
+    fun getMovieDetails(@Path("movie_id") movieId : Int, @Query("api_key") apiKey: String) : Single<MovieDetails>
 }

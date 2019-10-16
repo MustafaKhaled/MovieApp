@@ -1,16 +1,17 @@
-package com.movieapp.kotlin.ui
+package com.movieapp.kotlin.ui.toprated
 
-import android.graphics.Movie
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.movieapp.kotlin.R
+import com.movieapp.kotlin.domain.model.toprated.SingleMovieModel
 import com.movieapp.kotlin.presentation.viewmodels.GetAllMoviesViewModel
-import com.movieapp.kotlin.ui.adapter.MoviesAdapter
+import com.movieapp.kotlin.ui.details.MovieDetailsActivity
+import com.movieapp.kotlin.ui.toprated.adapter.MoviesAdapter
 import kotlinx.android.synthetic.main.activity_main.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -30,6 +31,13 @@ class MainActivity : AppCompatActivity() {
         observeMovies()
     }
 
+
+    private fun  movieItemClicked(singleMovieModel: SingleMovieModel) {
+        val intent = Intent(this, MovieDetailsActivity::class.java)
+        intent.putExtra("id", singleMovieModel.id)
+        intent.putExtra("title",singleMovieModel.title)
+        startActivity(intent)
+    }
     private fun observeMovies(){
         getAllMoviesViewModel.getMovies().observe(this, Observer { it?.let {
             Log.d("Movies" , "Size "+ it.results.size)
@@ -45,7 +53,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setUpRecyclerView(){
-        adapter = MoviesAdapter()
+        adapter = MoviesAdapter { singleItem : SingleMovieModel -> movieItemClicked(singleItem) }
         movies_recyclerView.layoutManager = GridLayoutManager(this,2)
         movies_recyclerView.adapter = adapter
     }

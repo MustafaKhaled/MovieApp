@@ -8,6 +8,7 @@ import com.movieapp.kotlin.domain.repo.GetMovieDetailsRepo
 import com.movieapp.kotlin.domain.usecases.business.GetAllMoviesUseCase
 import com.movieapp.kotlin.domain.usecases.business.MovieDetailsUseCase
 import com.movieapp.kotlin.presentation.viewmodels.GetAllMoviesViewModel
+import com.movieapp.kotlin.presentation.viewmodels.MovieDetailsViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
@@ -17,6 +18,7 @@ val MoviesModules = module {
     single { createGetDetailsRepoInstance(get()) }
     single { createGetMovieDetailsUseCase(get()) }
     viewModel { GetAllMoviesViewModel(get()) }
+    viewModel { MovieDetailsViewModel(get()) }
 }
 
 

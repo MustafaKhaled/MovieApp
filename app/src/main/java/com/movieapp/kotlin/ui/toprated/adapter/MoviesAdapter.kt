@@ -1,4 +1,4 @@
-package com.movieapp.kotlin.ui.adapter
+package com.movieapp.kotlin.ui.toprated.adapter
 
 import android.view.LayoutInflater
 import android.view.View
@@ -9,7 +9,7 @@ import com.movieapp.kotlin.domain.model.toprated.SingleMovieModel
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.movie_list_item.view.*
 
- class MoviesAdapter : RecyclerView.Adapter<MoviesAdapter.MovieViewHolder>() {
+ class MoviesAdapter(val clickListener: (SingleMovieModel) -> Unit) : RecyclerView.Adapter<MoviesAdapter.MovieViewHolder>() {
     var mainList : ArrayList<SingleMovieModel> = ArrayList()
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieViewHolder {
        return MovieViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.movie_list_item, parent, false))
@@ -20,7 +20,7 @@ import kotlinx.android.synthetic.main.movie_list_item.view.*
     }
 
     override fun onBindViewHolder(holder: MovieViewHolder, position: Int) {
-        holder.bind(mainList[position])
+        holder.bind(mainList[position],clickListener)
     }
 
     fun addItems(moviesResults : List<SingleMovieModel>){
@@ -29,8 +29,9 @@ import kotlinx.android.synthetic.main.movie_list_item.view.*
     }
 
 
-     class MovieViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        fun bind (singleMovieModel: SingleMovieModel) = with(itemView){
+     class MovieViewHolder(itemView: View ) : RecyclerView.ViewHolder(itemView) {
+        fun bind (singleMovieModel: SingleMovieModel, clickListener: (SingleMovieModel) -> Unit) = with(itemView){
+            itemView.setOnClickListener { clickListener(singleMovieModel) }
             Picasso.get().load("https://image.tmdb.org/t/p/w500".plus(singleMovieModel.posterPath)).into(poster_url)
             movie_name.text = singleMovieModel.title
 

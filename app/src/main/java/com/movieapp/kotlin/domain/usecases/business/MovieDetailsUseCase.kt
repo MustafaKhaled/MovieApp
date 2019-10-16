@@ -1,7 +1,7 @@
 package com.movieapp.kotlin.domain.usecases.business
 
-import MovieDetails
 import com.movieapp.kotlin.BuildConfig
+import com.movieapp.kotlin.domain.model.details.MovieDetails
 import com.movieapp.kotlin.domain.repo.GetMovieDetailsRepo
 import com.movieapp.kotlin.domain.usecases.core.UseCasePrimary
 import io.reactivex.Single
