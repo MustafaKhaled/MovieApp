@@ -36,5 +36,4 @@ Reach out to me at one of the following places!
 Email: mustafakhaledmustafa@outlook.com
 
 LinkedIn: https://www.linkedin.com/in/mustafa-khaled
-# License
-This project is licensed under the MIT License
+
