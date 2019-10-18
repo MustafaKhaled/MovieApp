@@ -37,3 +37,5 @@ Email: mustafakhaledmustafa@outlook.com
 
 LinkedIn: https://www.linkedin.com/in/mustafa-khaled
 
+# License
+This project under MIT license
